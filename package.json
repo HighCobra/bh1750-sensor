@@ -1,0 +1,27 @@
+{
+  "name": "bh1750-sensor",
+  "version": "0.0.1",
+  "description": "A Node.js I2C module for BH1750 Ambient Light Sensor",
+  "main": "BH1750.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "BH1750",
+    "Ambient",
+    "Light",
+    "Sensor",
+    "Adafruit",
+    "Raspberry",
+    "Pi"
+  ],
+  "author": "Christophe Claudin",
+  "license": "MIT",
+  "dependencies": {
+    "i2c-bus": "5.2.2"
+  },
+  "devDependencies": {
+    "chai": "4.3.4",
+    "mocha": "9.1.2"
+  }
+}
