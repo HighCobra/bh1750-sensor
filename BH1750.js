@@ -25,7 +25,7 @@ class BH1750 {
 
     this.i2cBusNo = (options && options.hasOwnProperty('i2cBusNo')) ? options.i2cBusNo : 1; 
     this.i2cAddress = (options && options.hasOwnProperty('i2cAddress')) ? options.i2cAddress : BH1750.BH1750_DEFAULT_I2C_ADDRESS();
-    this.readMode = (options && options.hasOwnProperty('readMode')) ? options.readMode : CONTINUOUS_H_RESOLUTION_MODE;
+    this.readMode = (options && options.hasOwnProperty('readMode')) ? options.readMode : BH1750.CONTINUOUS_H_RESOLUTION_MODE;
 
     this.init();
   }
@@ -41,10 +41,16 @@ class BH1750 {
     let data = i2cBus.readWordSync(this.i2cAddress, this.readMode);
     i2cBus.closeSync();
     if(data) {
-      return data;
+      return this.toLux(data);
     } else {
-      throw 'Read Error'
+      throw 'Read Error';
     }
+  }
+
+  toLux(value) {
+    let loByte = value >> 8;
+    let hiByte = value - (loByte << 8);
+    return (hiByte*256+loByte)/1.2;
   }
 
   static BH1750_DEFAULT_I2C_ADDRESS() {
