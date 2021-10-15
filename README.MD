@@ -1,4 +1,4 @@
-#bh1750-sensor
+# bh1750-sensor
 
 Welcome to bh1750-sensor module. A Node.JS module for the I2C BH1750 Ambient Light Sensor.
 
