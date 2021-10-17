@@ -1,6 +1,6 @@
 {
   "name": "bh1750-sensor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Node.js I2C module for BH1750 Ambient Light Sensor",
   "main": "BH1750.js",
   "scripts": {
