@@ -40,7 +40,7 @@ class BH1750 {
     const i2cBus = i2c.openSync(this.i2cBusNo);
     let data = i2cBus.readWordSync(this.i2cAddress, this.readMode);
     i2cBus.closeSync();
-    if(data) {
+    if(!isNaN(parseInt(data))) {
       return this.toLux(data);
     } else {
       throw 'Read Error';
